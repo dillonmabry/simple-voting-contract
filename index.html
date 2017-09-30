@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Node Ethereum Voting App</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+</head>
+<body class="container">
+  <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Ethereum Voting Contract</a>
+    </div>
+    <form id="searchForm" class="navbar-form navbar-right">
+      <div class="form-group">
+        <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>&nbsp; 
+        <input id='searchInput' type="text" class="form-control" placeholder="Search transaction">
+      </div>
+    </form>
+  </div>
+  </nav>
+  <div class="body-main">
+  <hr/>
+  <h2>Simple Smart Contract Application for Voting</h2>
+  <div class="panel panel-default">
+     <div class="panel-body">This is a simple application using Ethereum, Web3, and Node to utilize the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">Ethereum JavaScript API</a>. The simulation registers voting transactions from a randomized account for each vote and displays transaction history.</div>
+  </div>
+  <li id="currentAccount" class="list-group-item"></li>
+  <br/>
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Candidate</th>
+          <th>Votes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Rama</td>
+          <td id="candidate-1"></td>
+        </tr>
+        <tr>
+          <td>Nick</td>
+          <td id="candidate-2"></td>
+        </tr>
+        <tr>
+          <td>Jose</td>
+          <td id="candidate-3"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <a href="#" id='voteButton' class="btn btn-primary">Vote for Selected</a>
+  <hr/>
+  <h2>Transaction Counts per Account</h2>
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Account</th>
+          <th>Count</th>
+        </tr>
+      </thead>
+      <tbody id='transactions'>
+      </tbody>
+    </table>
+  </div>
+  <hr/>
+  <h2>Recent Transaction History</h2>
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Timestamp</th>
+          <th>Transaction Hash</th>
+        </tr>
+      </thead>
+      <tbody id='transactions-record'>
+      </tbody>
+    </table>
+  </div>
+  <br/>
+  <div class="gifloader"></div>
+  <!-- Modal -->
+  <div class="modal fade" id="modal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Transaction Information</h4>
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div> 
+    </div>
+  </div>
+ </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="./index.js"></script>
+</html>
